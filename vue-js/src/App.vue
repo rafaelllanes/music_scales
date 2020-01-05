@@ -1,60 +1,47 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+  <div class="container">
+    <div class="row">
+      <div class="col s2 offset-s4 input-field">
+        <form>
+          <select></select>
+        </form>
       </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-content>
-      <HelloWorld/>
-    </v-content>
-  </v-app>
+    </div>
+    <div class="row">
+      <div class="col s1 offset-s2 teal white-text center-align mrg">I</div>
+      <div class="col s1 teal white-text center-align mrg">II</div>
+      <div class="col s1 teal white-text center-align mrg">III</div>
+      <div class="col s1 teal white-text center-align mrg">IV</div>
+      <div class="col s1 teal white-text center-align mrg">V</div>
+      <div class="col s1 teal white-text center-align mrg">VI</div>
+      <div class="col s1 teal white-text center-align mrg">VII</div>
+      <div class="col s1 teal white-text center-align">VIII</div>
+    </div>
+    <div id="scale" class="row">
+      <div id="note1" class="col s1 offset-s2 black white-text center-align mrg">*</div>
+      <div id="note2" class="col s1 black white-text center-align mrg">*</div>
+      <div id="note3" class="col s1 black white-text center-align mrg">*</div>
+      <div id="note4" class="col s1 black white-text center-align mrg">*</div>
+      <div id="note5" class="col s1 black white-text center-align mrg">*</div>
+      <div id="note6" class="col s1 black white-text center-align mrg">*</div>
+      <div id="note7" class="col s1 black white-text center-align mrg">*</div>
+      <div id="note8" class="col s1 black white-text center-align">*</div>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
 export default {
-  name: 'App',
-
-  components: {
-    HelloWorld,
-  },
-
-  data: () => ({
-    //
-  }),
-};
+  data() {
+    return {
+      allNotes: ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'],
+    }
+  }
+}
 </script>
+
+<style scoped>
+.mrg {
+    margin-right: 1px;
+}
+</style>
