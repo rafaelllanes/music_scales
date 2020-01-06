@@ -26,11 +26,11 @@
     </div>
     <div id="scale" class="row" v-if="scaleType === 'Major'">
       <div id="spacer" class="col s2 white white-text center-align mrg"></div>
-      <div class="col s1 black white-text center-align mrg" v-for="(note, index) in displayMajorScale" v-bind:key="index">{{ note }}</div>
+      <div class="col s1 black white-text center-align mrg" v-for="(note, index) in displayScale(scaleOf, scaleType)" v-bind:key="index">{{ note }}</div>
     </div>
     <div id="scale" class="row" v-if="scaleType === 'Minor'">
       <div id="spacer" class="col s2 white white-text center-align mrg"></div>
-      <div class="col s1 black white-text center-align mrg" v-for="(note, index) in displayMinorScale" v-bind:key="index">{{ note }}</div>
+      <div class="col s1 black white-text center-align mrg" v-for="(note, index) in displayScale(scaleOf, scaleType)" v-bind:key="index">{{ note }}</div>
     </div>
   </div>
 </template>
@@ -50,16 +50,14 @@ export default {
       startAt: 0,
     }
   },
-  computed: {
-    displayMajorScale: function() {
-      return this.majorSteps.map(note => {
-        return this.allNotes[note < 12 ? note : note - 12];
-      })
-    },
-    displayMinorScale: function() {
-      return this.minorSteps.map(note => {
-        return this.allNotes[note < 12 ? note : note - 12]
-      })
+  methods: {
+    displayScale: function(start, type) {
+      this.majorScale.push('E', 'F', 'G');
+      if (type === "Major") {
+        return this.majorScale;
+      } else {
+        return start;
+      }
     }
   }
 }
