@@ -24,9 +24,13 @@
       <div class="col s1 teal white-text center-align mrg">VII</div>
       <div class="col s1 teal white-text center-align">VIII</div>
     </div>
-    <div id="scale" class="row">
+    <div id="scale" class="row" v-if="scaleType === 'Major'">
       <div id="spacer" class="col s2 white white-text center-align mrg"></div>
-      <div class="col s1 black white-text center-align mrg">C</div>
+      <div class="col s1 black white-text center-align mrg" v-for="(note, index) in displayMajorScale" v-bind:key="index">{{ note }}</div>
+    </div>
+    <div id="scale" class="row" v-if="scaleType === 'Minor'">
+      <div id="spacer" class="col s2 white white-text center-align mrg"></div>
+      <div class="col s1 black white-text center-align mrg" v-for="(note, index) in displayMinorScale" v-bind:key="index">{{ note }}</div>
     </div>
   </div>
 </template>
@@ -46,9 +50,16 @@ export default {
       startAt: 0,
     }
   },
-  methods: {
-    displayScale: function() {
-      return null
+  computed: {
+    displayMajorScale: function() {
+      return this.majorSteps.map(note => {
+        return this.allNotes[note < 12 ? note : note - 12];
+      })
+    },
+    displayMinorScale: function() {
+      return this.minorSteps.map(note => {
+        return this.allNotes[note < 12 ? note : note - 12]
+      })
     }
   }
 }
